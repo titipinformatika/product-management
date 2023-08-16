@@ -29,4 +29,27 @@ class CategoryRepositoryImplTest extends TestCase{
         self::assertSame("Hand Phone",$result->getName());
     }
 
+    public function testDeleteSuccess(){
+        self::assertTrue($this->repository->delete(1),"Success Deleted");
+    }
+
+    public function testFindAll(){
+        $category = new Category();
+        $category->setName("Asep Riki");
+
+        $this->repository->save($category);
+
+        $result = $this->repository->findAll();
+        var_dump($result);
+        self::assertTrue(true,"Success");
+    }
+
+    public function testEdit(){
+        $oldCategory = $this->repository->findById(2);
+        $oldCategory->setName("Peralatan Pertanian");
+        $newCategory =$this->repository->edit($oldCategory);
+        self::assertEquals($oldCategory->getId(),$newCategory->getId());
+        self::assertStringContainsString("Peralatan Pertanian",$newCategory->getName());
+    }
+
 }

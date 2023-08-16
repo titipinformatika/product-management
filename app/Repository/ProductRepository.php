@@ -5,7 +5,7 @@ use TitipInformatika\Data\Model\Product;
 interface ProductRepository{
 
     public function save(Product $product):Product;
-
+    
     public function delete(int $id):bool;
 
     public function findById(int $id):?Product;

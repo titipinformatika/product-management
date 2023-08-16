@@ -59,15 +59,18 @@ class CategoryRepositoryImpl implements CategoryRepository{
             $category->setId($row['id']);
             $category->setName($row['name']);
             $result[]=$category;
-            
         }
         return $result;
     }
 
     public function edit(Category $category):Category{
-        $sql ="UPDATE FROM category SET (name = ?) WHERE id =?";
+        $sql ='UPDATE category SET name =:name WHERE id=:id';
+        $name = $category->getName();
+        $id = $category->getId();
         $statement=$this->connection->prepare($sql);
-        $statement->execute([$category->getName(),$category->getId()]);
+        $statement->bindParam("name",$name);
+        $statement->bindParam("id",$id);
+        $statement->execute();
         return $this->findById($category->getId());
     }
 

@@ -3,7 +3,7 @@ namespace TitipInformatika\Data\App;
 use PDO;
 
 class Database{
-    private static string $host ="localhost",$port="33061",$db="product_management_test",$username="root",$password="@r1k1Sukses1";
+    private static string $host ="localhost",$port="33061",$db="product_management_test",$username="root",$password="1234";
 
     public static function getConnection(string $mode ="test"):PDO{
         if($mode !="test"){

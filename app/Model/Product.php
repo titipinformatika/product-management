@@ -103,4 +103,6 @@ class Product {
 	public function setCategory(Category $category): void {
 		$this->category = $category;
 	}
+
+	
 }
