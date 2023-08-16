@@ -1,0 +1,28 @@
+{
+    "name": "titipinformatika/product-management",
+    "description": "Studikasus membuat product management",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Asep Riki",
+            "email": "titip.informatika@gmail.com"
+        }
+    ],
+    "require": {
+        "PHP":">=8",
+        "fakerphp/faker":"1.22"
+    },
+    "require-dev": {
+        "phpunit/phpunit":"9.5.8"
+    },
+    "autoload": {
+        "psr-4":{
+            "TitipInformatika\\Data\\":"app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TitipInformatika\\Data\\":"tests"
+        }
+    }
+}
